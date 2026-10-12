@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YT SEO Master</title>
+<style>
+body{font-family:Arial;background:#101827;color:white;padding:20px}
+h1{color:#ff4545;text-align:center}
+.card{background:#1e293b;padding:16px;border-radius:12px;margin:15px 0}
+input,textarea{width:95%;padding:12px;margin:8px 0;border-radius:8px}
+button{background:#ff3030;color:white;padding:12px;border:0;border-radius:8px;width:100%}
+.result{white-space:pre-wrap;overflow-wrap:anywhere;margin-top:10px}
+</style>
+</head>
+<body>
+<h1>🎬 YT SEO Master</h1>
+<p style="text-align:center">Free YouTube SEO Tools</p>
+
+<div class="card">
+<h3>📝 Title Generator</h3>
+<input id="topic" placeholder="Enter video topic">
+<button onclick="titles()">Generate Titles</button>
+<div id="titleResult" class="result"></div>
+</div>
+
+<div class="card">
+<h3>🔍 Tags Generator</h3>
+<input id="tagTopic" placeholder="Enter video topic">
+<button onclick="tags()">Generate Tags</button>
+<div id="tagResult" class="result"></div>
+</div>
+
+<div class="card">
+<h3>#️⃣ Hashtag Generator</h3>
+<input id="hashTopic" placeholder="Enter video topic">
+<button onclick="hashtags()">Generate Hashtags</button>
+<div id="hashResult" class="result"></div>
+</div>
+
+<div class="card">
+<h3>📄 Description Generator</h3>
+<textarea id="descTopic" placeholder="Enter video topic"></textarea>
+<button onclick="description()">Generate Description</button>
+<div id="descResult" class="result"></div>
+</div>
+
+<script>
+function val(id){return document.getElementById(id).value.trim()}
+function out(id,text){document.getElementById(id).innerText=text}
+function titles(){
+let t=val('topic');
+out('titleResult',t?`1. ${t} | Complete Guide\n2. How to ${t}\n3. ${t} for Beginners`:'Enter a topic first.');
+}
+function tags(){
+let t=val('tagTopic');
+out('tagResult',t?[t,...t.split(' '),t+' tutorial',t+' tips','how to '+t].join(', '):'Enter a topic first.');
+}
+function hashtags(){
+let t=val('hashTopic');
+out('hashResult',t?t.split(/\s+/).map(w=>'#'+w.replace(/[^\w]/g,'')).join(' ')+' #YouTube #Shorts':'Enter a topic first.');
+}
+function description(){
+let t=val('descTopic');
+out('descResult',t?`Welcome to our video about ${t}!\n\nIn this video, we explain ${t} in a simple way.\n\nLike, share and subscribe!\n\n#YouTube #${t.replace(/\s+/g,'')}`:'Enter a topic first.');
+}
+</script>
+</body>
+  </html>
